@@ -90,3 +90,78 @@ sources:
           - name: landmark
             description: Nearby landmark or point of interest
 
+      - name: source_nyc_open_restaurant_apps
+        description: |
+          Raw NYC Open Restaurants applications data.
+          One row per restaurant application record.
+        columns:
+          - name: approved_for_roadway_seating
+            description: Indicates whether the application was approved for roadway seating
+          - name: approved_for_sidewalk_seating
+            description: Indicates whether the application was approved for sidewalk seating
+          - name: bbl
+            description: Borough Block and Lot number for the property
+          - name: bin
+            description: Building Identification Number
+          - name: borough
+            description: NYC borough where the restaurant is located
+          - name: bulding_number
+            description: Building number of the restaurant address
+          - name: business_address
+            description: Business address of the restaurant
+          - name: census_tract
+            description: Census tract where the restaurant is located
+          - name: community_board
+            description: NYC Community Board district number
+          - name: council_district
+            description: NYC Council district number
+          - name: doing_business_as_dba
+            description: Doing business as name of the restaurant
+          - name: food_service_establishment
+            description: Food service establishment identifier or status
+          - name: globalid
+            description: Global identifier for the application record
+          - name: healthcompliance_terms
+            description: Health compliance terms associated with the application
+          - name: landmark_district_or_building
+            description: Indicates whether the restaurant is in a landmark district or building
+          - name: landmarkdistrict_terms
+            description: Landmark district terms associated with the application
+          - name: latitude
+            description: Latitude coordinate of the restaurant location
+          - name: legal_business_name
+            description: Legal business name of the applicant
+          - name: longitude
+            description: Longitude coordinate of the restaurant location
+          - name: nta
+            description: Neighborhood Tabulation Area code
+          - name: objectid
+            description: Object ID for the application record
+          - name: qualify_alcohol
+            description: Indicates whether the business qualifies for alcohol service
+          - name: restaurant_name
+            description: Name of the restaurant
+          - name: roadway_dimensions_area
+            description: Area of the roadway seating space
+          - name: roadway_dimensions_length
+            description: Length of the roadway seating space
+          - name: roadway_dimensions_width
+            description: Width of the roadway seating space
+          - name: seating_interest_sidewalk
+            description: Indicates interest in sidewalk seating
+          - name: sidewalk_dimensions_area
+            description: Area of the sidewalk seating space
+          - name: sidewalk_dimensions_length
+            description: Length of the sidewalk seating space
+          - name: sidewalk_dimensions_width
+            description: Width of the sidewalk seating space
+          - name: sla_license_type
+            description: SLA license type for the restaurant
+          - name: sla_serial_number
+            description: SLA serial number for the restaurant
+          - name: street
+            description: Street name of the restaurant address
+          - name: time_of_submission
+            description: Time when the application was submitted
+          - name: zip
+            description: ZIP code of the restaurant location
