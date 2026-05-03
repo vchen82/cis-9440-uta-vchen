@@ -39,3 +39,20 @@ models:
        dot_311:
          +materialized: table
 
+   group_16_project:
+      staging:
+        +materialized: table
+        +schema: nyc_crashes_complaints_staging
+
+      marts:
+        +materialized: table
+        +schema: nyc_crashes_complaints_marts
+
+        shared:
+          +materialized: table
+
+        vehicle_crashes:
+          +materialized: table
+
+        311_vehicle_complaints:
+          +materialized: table
