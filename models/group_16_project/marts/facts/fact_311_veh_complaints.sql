@@ -90,7 +90,7 @@ joined as (
 )
 
 select
-    request_id as unique_key,
+    unique_key,
     date_key,
     location_key,
     problem_details_key,
