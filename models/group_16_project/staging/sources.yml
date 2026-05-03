@@ -1,0 +1,168 @@
+version: 2
+sources:
+  - name: raw
+    description: Raw data loaded from NYC Open Data
+    database: kamifrota-cis9440
+    schema: group16_nyc_open_data_raw_dataset
+    tables:
+      - name: source_nyc_311_vehicle_complaints 
+        description: 
+          NYC 311 service requests for NYPD with complaint types related to vehicles.
+          One row per service request.
+        columns:
+          - name: unique_key
+            description: Unique ID for the service request
+            tests:
+              - unique
+              - not_null
+          - name: created_date
+            description: Date and time the request was created
+          - name: closed_date
+            description: Date and time the request was closed
+          - name: due_date
+            description: Expected due date for request resolution
+          - name: agency
+            description: Agency code
+          - name: agency_name
+            description: Full name of the agency
+          - name: complaint_type
+            description: Type of complaint
+          - name: descriptor
+            description: Further description of the complaint
+          - name: descriptor_2
+            description: Further 3rd level description of the complaint
+          - name: vehicle_type
+            description: If the incident is a taxi, this field describes the type of TLC vehicle
+          - name: taxi_company_borough
+            description: Taxi company borough (if incident is a taxi) 
+          - name: taxi_pick_up_location
+            description: Taxi pickup location (if incident involves a taxi)
+          - name: bridge_highway_name
+            description: Bridge/Highway name (if incident involves one)
+          - name: bridge_highway_direction
+            description: Direction on bridge or highway (e.g. Northbound)
+          - name: road_ramp
+            description: Road ramp identifier or bridge/highway incidents
+          - name: bridge_highway_segment
+            description: Specific segment of bridge or highway
+          - name: location_type
+            description: Location where the incident occurred
+          - name: incident_zip
+            description: Zip code of the incident location
+          - name: incident_address
+            description: Street address of the incident
+          - name: address_type
+            description: 'Type of address (e.g., ADDRESS, INTERSECTION, BLOCKFACE)'
+          - name: facility_type
+            description: Type of facility where incident occurred
+          - name: latitude
+            description: Latitude coordinate
+          - name: longitude
+            description: Longitude coordinate
+          - name: bbl
+            description: Borough Block and Lot number (NYC tax lot id)
+          - name: borough
+            description: NYC borough where incident occurred
+          - name: city
+            description: City name where incident occurred
+          - name: community_board
+            description: NYC Community Board district number
+          - name: council district
+            description: The City Council district where the service request is located
+          - name: cross_street_1
+            description: First cross street near incident location
+          - name: cross_street_2
+            description: Second cross street near incident location
+          - name: intersection_street_1
+            description: First street forming intersection where incident occurred
+          - name: intersection_street_2
+            description: Second street forming intersection where incident occurred
+          - name: landmark
+            description: Nearby landmark or point of interest
+          - name: open_data_channel_type
+            description: How request was submitted (ONLINE, PHONE, MOBILE, etc.)
+          - name: park_borough
+            description: Borough of park where incident occurred
+          - name: park_facility_name
+            description: Name of park facility where incident occurred
+          - name: police_precinct
+            description: The NYPD precinct where the service request is located
+          - name: resolution_action_updated_date
+            description: Date when resolution action was last updated
+          - name: resolution_description
+            description: Description of how the request was resolved
+          - name: status
+            description: Current status of request (Open, Closed, In Progress, etc.)
+          - name: street_name
+            description: Name of street where incident occurred
+          - name: x_coordinate_state_plane
+            description: X coordinate in NY State Plane projection system (NAD 83)
+          - name: y_coordinate_state_plane
+            description: Y coordinate in NY State Plane projection system (NAD 83)
+
+      - name: source_nyc_vehicle_crashes
+        description: 
+          Details on vehicle crash events in NYC.
+          One row per crash event.
+        columns:
+          - name: collision_ID
+            description: Unique record code generated by system. Primary Key for Crash table.
+            tests:
+              - unique
+              - not_null
+          - name: crash_date
+            description: Occurrence date of collision
+          - name: crash_time
+            description: Occurence time of collission
+          - name: borough
+            description: Borough where collision occurred
+          - name: zip_code
+            description: Postal code of incident occurrence
+          - name: latitude
+            description: Latitude coordinate for Global Coordinate System, WGS 1984, decimal degrees (EPSG 4326)
+          - name: longitude
+            description: Longitude coordinate for Global Coordinate System, WGS 1984, decimal degrees (EPSG 4326)
+          - name: location
+            description: Latitude , Longitude pair
+          - name: on_street_name
+            description: Street on which the collision occurred
+          - name: off_street_name
+            description: Nearest cross street to the collision
+          - name: cross_street_name
+            description: Street address if known
+          - name: number_of_persons_injured
+            description: Number of persons injured
+          - name: number_of_persons_killed
+            description: Number of persons killed
+          - name: number_of_pedestrians_injured
+            description: Number of pedestrians injured
+          - name: number_of_pedestrians_killed
+            description: Number of pedestrians killed
+          - name: number_of_cyclist_injured
+            description: Number of cyclists injured
+          - name: number_of_cyclist_killed
+            description: Number of cyclists killed
+          - name: number_of_motorist_injured
+            description: Number of vehicle occupants injured
+          - name: number_of_motorist_killed
+            description: Number of vehicle occupants killed
+          - name: contributing_factor_vehicle_1
+            description: Factors contributing to the collision for designated vehicle
+          - name: contributing_factor_vehicle_2
+            description: Factors contributing to the collision for designated vehicle
+          - name: contributing_factor_vehicle_3
+            description: Factors contributing to the collision for designated vehicle
+          - name: contributing_factor_vehicle_4
+            description: Factors contributing to the collision for designated vehicle
+          - name: contributing_factor_vehicle_5
+            description: Factors contributing to the collision for designated vehicle
+          - name: vehicle_type_code1
+            description: Type of vehicle based on the selected vehicle category (ATV, bicycle, car/suv, ebike, escooter, truck/bus, motorcycle, other)
+          - name: vehicle_type_code2
+            description: Type of vehicle based on the selected vehicle category (ATV, bicycle, car/suv, ebike, escooter, truck/bus, motorcycle, other)
+          - name: vehicle_type_code3
+            description: Type of vehicle based on the selected vehicle category (ATV, bicycle, car/suv, ebike, escooter, truck/bus, motorcycle, other)
+          - name: vehicle_type_code4
+            description: Type of vehicle based on the selected vehicle category (ATV, bicycle, car/suv, ebike, escooter, truck/bus, motorcycle, other)
+          - name: vehicle_type_code5
+            description: Type of vehicle based on the selected vehicle category (ATV, bicycle, car/suv, ebike, escooter, truck/bus, motorcycle, other)
