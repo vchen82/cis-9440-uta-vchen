@@ -8,7 +8,7 @@ with base as (
 prep as (
     select
         -- business id
-        unique_key,
+        request_id as unique_key,
 
         -- dates
         created_date,
@@ -90,7 +90,7 @@ joined as (
 )
 
 select
-    unique_key,
+    request_id as unique_key,
     date_key,
     location_key,
     problem_details_key,
