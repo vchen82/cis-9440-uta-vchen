@@ -136,4 +136,3 @@ select
     end as location
 
 from joined
-;
