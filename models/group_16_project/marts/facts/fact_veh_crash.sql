@@ -7,15 +7,19 @@ with base as (
 
 prep as (
     select
+        -- Business ID (diagram has veh_crash_key + Collision_ID)
         collision_id,
+
         crash_date,
 
+        -- Shared location inputs (must match dim_shared_location)
         borough,
         cast(zip_code as string) as zip_code,
         on_street_name as street_name,
         cross_street_name,
         off_street_name,
 
+        -- Dim inputs
         contributing_factor_vehicle_1,
         contributing_factor_vehicle_2,
         contributing_factor_vehicle_3,
@@ -35,7 +39,11 @@ prep as (
         cast(cyclists_injured as int64) as cyclists_injured,
         cast(cyclists_killed as int64) as cyclists_killed,
         cast(motorists_injured as int64) as motorists_injured,
-        cast(motorists_killed as int64) as motorists_killed
+        cast(motorists_killed as int64) as motorists_killed,
+
+        -- Diagram attributes
+        latitude,
+        longitude
     from base
 ),
 
@@ -107,19 +115,25 @@ joined as (
 )
 
 select
-    collision_id,
-    date_key,
-    location_key,
+    -- diagram keys/ids
+    collision_id as veh_crash_key,
+
     contributing_factor_key,
     vehicle_type_key,
     people_key,
+    location_key,
+    date_key,
 
-    persons_injured,
-    persons_killed,
-    pedestrians_injured,
-    pedestrians_killed,
-    cyclists_injured,
-    cyclists_killed,
-    motorists_injured,
-    motorists_killed
+    collision_id as collision_id,
+
+    cast(latitude as float64) as latitude,
+    cast(longitude as float64) as longitude,
+
+    case
+      when latitude is not null and longitude is not null
+      then st_geogpoint(cast(longitude as float64), cast(latitude as float64))
+      else null
+    end as location
+
 from joined
+;
